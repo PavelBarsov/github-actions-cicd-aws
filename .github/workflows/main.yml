@@ -10,6 +10,9 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+      id-token: write
+
 jobs:
   CI_part:
     runs-on: ubuntu-latest
@@ -22,10 +25,10 @@ jobs:
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume       : ${{ secrets.AWS_ROLE_GITHUB }}
-          role-session-name    : MySessionName
+          role-session-name    : GitHubActions
           aws-region           : ${{ env.AWS_REGION_NAME }}
       
       - name: Verify AWS Credentials
