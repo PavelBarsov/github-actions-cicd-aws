@@ -21,21 +21,18 @@ jobs:
       - name: Create zip flask package 
         run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
-      # - name: Configure AWS Credentials
-      #   uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     aws-access-key-id    : ${{ secrets.MY_AWS_ACCESS_KEY  }}
-      #     aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
-      #     aws-region           : ${{ env.AWS_REGION_NAME }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id    : ${{ secrets.MY_AWS_ACCESS_KEY  }}
+          aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
+          aws-region           : ${{ env.AWS_REGION_NAME }}
       
-      # - name: Verify AWS Credentials
-      #   run: aws sts get-caller-identity
+      - name: Verify AWS Credentials
+        run: aws sts get-caller-identity
         
       - name: Copy flask package to S3 bucket
-        run: |
-          aws configure set aws_access_key_id ${{ secrets.MY_AWS_ACCESS_KEY }}
-          aws configure set aws_secret_access_key ${{ secrets.MY_AWS_SECRET_KEY }}
-          aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }}  s3://${{ env.EB_PACKAGE_S3_BUCKET_NAME }}/
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }}  s3://${{ env.EB_PACKAGE_S3_BUCKET_NAME }}/
     
       - name: Print CI finish
         run : echo "CI Pipeline part Finished successfully!"
