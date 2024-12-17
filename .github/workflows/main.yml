@@ -42,8 +42,7 @@ jobs:
           aws elasticbeanstalk create-environment \
           --environment-name Test-env \
           --application-name MyFlask \
-          --platform "64bit Amazon Linux 2 v5.6.0 running Python 3.11" \
-          --instance-types t3.micro
+          --platform "64bit Amazon Linux 2 v5.6.0 running Python 3.11"
 
     
       - name: Print CI finish
