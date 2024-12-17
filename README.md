@@ -3,7 +3,7 @@
 ---
 
 **Status of Last Deployment:**  
-<img src="https://github.com/USERNAME/REPOSITORY/actions/workflows/ci-cd-pipeline.yml/badge.svg?branch=main" alt="Deployment Status"><br>
+<br> <img src="https://github.com/USERNAME/REPOSITORY/actions/workflows/ci-cd-pipeline.yml/badge.svg?branch=main"><br>
 
 ---
 
@@ -54,10 +54,3 @@ To run this pipeline, ensure the following:
    - Enable OIDC for GitHub Actions in your AWS account.
 
 ---
-
-## **How to Use**
-
-1. **Clone this repository:**
-   ```bash
-   git clone https://github.com/USERNAME/REPOSITORY.git
-   cd REPOSITORY
