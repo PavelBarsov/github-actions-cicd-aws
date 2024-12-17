@@ -3,7 +3,7 @@
 ---
 
 **Status of Last Deployment:**  
-<br> <img src="https://github.com/USERNAME/REPOSITORY/actions/workflows/ci-cd-pipeline.yml/badge.svg?branch=main"><br>
+<br><img src="https://github.com/PavelBarsov/github-actions-cicd-aws/actions/workflows/main.yml/badge.svg?branch=main"><br>
 
 ---
 
